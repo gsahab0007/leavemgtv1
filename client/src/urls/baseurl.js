@@ -1,3 +1,3 @@
-export const urlLocal = "https://mern1-omega.vercel.app"
+export const urlLocal = "https://leavemgtv1.vercel.app/"
 
 export const urlNet = "http://localhost:5000"
