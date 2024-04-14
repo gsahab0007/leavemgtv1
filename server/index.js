@@ -15,8 +15,8 @@ const app = express();
 app.use(cors({
     origin: ['https://leavemgtv1v1.vercel.app'],
     // origin: ["*"],
-    // methods: ['GET', 'POST', 'PATCH', 'DELETE'],
-    methods: ['POST'],
+    methods: ['GET', 'POST', 'PATCH', 'DELETE'],
+    // methods: ['POST'],
     credentials: true
 }));
 app.use(express.json());
