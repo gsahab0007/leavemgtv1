@@ -13,7 +13,9 @@ connectDB();
 const app = express();
 
 app.use(cors({
-    origin: ["https://leavemgtv1v1.vercel.app"]
+    origin: ["https://leavemgtv1v1.vercel.app"],
+    methods: ["GET", "POST", "PATCH", "DELETE"],
+    credentials: true
 }));
 app.use(express.json());
 
