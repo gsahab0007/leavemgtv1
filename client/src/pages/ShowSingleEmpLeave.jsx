@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import { urlLocal, urlNet } from '../urls/baseurl';
+
 
 function ShowSingleEmpLeave() {
     const params = useParams();
@@ -22,7 +24,7 @@ function ShowSingleEmpLeave() {
     // ---------------------------- fetch all leave  -----------------------------------------
     const getEmpLeaveData = async () => {
         try {
-            const response = await fetch(`http://localhost:5000/api/v1/leave/get/emp/${params.id}`,
+            const response = await fetch(`${urlLocal}/api/v1/leave/get/emp/${params.id}`,
                 {
                     method: "GET"
                 });

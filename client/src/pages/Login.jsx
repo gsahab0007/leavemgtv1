@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
+import { urlLocal, urlNet } from "../urls/baseurl";
+
 
 function Login() {
     const navigate = useNavigate();
@@ -24,7 +26,7 @@ function Login() {
     const handleSubmitForm = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch('http://localhost:5000/api/v1/user/login', {
+            const response = await fetch(`${urlLocal}/api/v1/user/login`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"

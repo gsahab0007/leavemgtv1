@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Navbar from '../components/Navbar';
+import { urlNet, urlLocal } from '../urls/baseurl.js'
 
 function AddLeaves() {
     const params = useParams();
@@ -64,7 +65,7 @@ function AddLeaves() {
 
         try {
             let remark = dateForAdd.remarks;
-            const response = await fetch('http://localhost:5000/api/v1/leave/add/remarks', {
+            const response = await fetch(`${urlLocal}/api/v1/leave/add/remarks`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -100,7 +101,7 @@ function AddLeaves() {
     // -------------------------------------- Add leave date to employee--------ok---------------   
     const addLeaveDate = async () => {
 
-        let dt = `${dateForAdd.year} ${dateForAdd.month} ${dateForAdd.day} 11:10:05 UTC`
+        let dt = `${dateForAdd.year} ${dateForAdd.month} ${dateForAdd.day} 11: 10:05 UTC`
         let leaves = {
             leavedate: new Date(dt),
             leavetype: dateForAdd.leaveType
@@ -113,7 +114,7 @@ function AddLeaves() {
                 throw new Error("Token not found");
             }
 
-            const response = await fetch("http://localhost:5000/api/v1/leave/add/leave",
+            const response = await fetch(`${urlLocal}/api/v1/leave/add/leave`,
                 {
                     method: "POST",
                     headers: {
@@ -148,7 +149,7 @@ function AddLeaves() {
                 throw new Error("Token not found");
             }
 
-            const response = await fetch(`http://localhost:5000/api/v1/leave/get/emp/${params.id}`,
+            const response = await fetch(`${urlLocal}/api/v1/leave/get/emp/${params.id}`,
                 {
                     method: "GET",
                     headers: {
@@ -186,7 +187,7 @@ function AddLeaves() {
                 alert("Token not found");
                 throw new Error("Token not found");
             }
-            const response = await fetch(`http://localhost:5000/api/v1/leave/delete/leave`,
+            const response = await fetch(`${urlLocal}/api/v1/leave/delete/leave`,
                 {
                     method: "DELETE",
                     headers: {

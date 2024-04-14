@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
+import { urlLocal, urlNet } from '../urls/baseurl';
 
 
 function AllEmp() {
@@ -28,7 +29,7 @@ function AllEmp() {
                 // alert("Token not found !")
                 // throw new Error("Token not found !")
             }
-            const response = await fetch('http://localhost:5000/api/v1/leave/add/emp', {
+            const response = await fetch(`${urlLocal}/api/v1/leave/add/emp`, {
                 method: 'POST',
                 headers: {
                     "Content-Type": "application/json",
@@ -75,7 +76,7 @@ function AllEmp() {
                 // throw new Error("Token not found !");
             }
 
-            const response = await fetch('http://localhost:5000/api/v1/leave/get/allemp',
+            const response = await fetch(`${urlLocal}/api/v1/leave/get/allemp`,
                 {
                     method: "GET",
                     headers: {
@@ -116,7 +117,7 @@ function AllEmp() {
         }
 
         try {
-            const response = await fetch('http://localhost:5000/api/v1/leave/delete/emp', {
+            const response = await fetch(`${urlLocal}/api/v1/leave/delete/emp`, {
                 method: "DELETE",
                 headers: {
                     "Content-Type": "application/json",

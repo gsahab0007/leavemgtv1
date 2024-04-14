@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import Navbar from '../components/Navbar'
 import { useNavigate, useParams } from 'react-router-dom';
+import { urlLocal, urlNet } from '../urls/baseurl';
+
 
 function EditEmp() {
     const navigate = useNavigate();
@@ -39,7 +41,7 @@ function EditEmp() {
                 throw new Error("Token not found !");
             }
 
-            const response = await fetch(`http://localhost:5000/api/v1/leave/edit/emp/${params}`,
+            const response = await fetch(`${urlLocal}/api/v1/leave/edit/emp/${params}`,
                 {
                     method: "PATCH",
                     headers: {
@@ -73,7 +75,7 @@ function EditEmp() {
             throw new Error("Token not found !");
         }
         try {
-            const response = await fetch(`http://localhost:5000/api/v1/leave/get/emp/${params.id}`,
+            const response = await fetch(`${urlLocal}/api/v1/leave/get/emp/${params.id}`,
                 {
                     method: "GET",
                     headers: {
