@@ -2,7 +2,8 @@ import { mongoose } from 'mongoose'
 import dotenv from 'dotenv'
 dotenv.config();
 
-const mongoDB = process.env.MONGODB_URL;
+const dev_db_url = "mongodb://127.0.0.1:27017/leavemgt";
+const mongoDB = process.env.MONGODB_URL || dev_db_url;
 
 const connectDB = async () => {
     try {
