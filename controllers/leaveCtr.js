@@ -142,7 +142,6 @@ const editEmpPatchCtr = async (req, res) => {
 // ------------------------------- Add Leave Post CTr ------------------------------
 const addLeavesPatchCtr = async (req, res) => {
     const { id, leaves } = req.body;
-    console.log(id, leaves);
     if (id && leaves) {
         leaves.leavedate = new Date(leaves.leavedate);
 
