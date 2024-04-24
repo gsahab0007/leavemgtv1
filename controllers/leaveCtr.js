@@ -144,6 +144,15 @@ const addLeavesPatchCtr = async (req, res) => {
     const { id, leaves } = req.body;
     if (id && leaves) {
         leaves.leavedate = new Date(leaves.leavedate);
+        let year = leaves.leavedate.getFullYear();
+        let month = leaves.leavedate.getMonth();
+        let date = leaves.leavedate.getDate();
+        if (!(year === 2024 &&
+            month + 1 <= 12 && month + 1 >= 1 &&
+            date <= 31 && date >= 1)) {
+            return res.status(400).json({ message: "Invalid Date Entered !" });
+        }
+
 
         if (leaves.leavedate == "Invalid Date") {
             return res.status(400).json({ message: "Invalid Date Entered !" });
